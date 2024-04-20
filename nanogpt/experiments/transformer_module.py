@@ -20,7 +20,7 @@ class TransformerTrainingConfig(TransformerConfig):
     batch_size: int = 64
     data_loader_workers: int = 4
     example_text_every_n_iters: int = 1000
-    compile_model = True
+    compile_model: bool = True
 
 
 class TransformerModule(L.LightningModule):
