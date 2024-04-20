@@ -11,8 +11,7 @@ setup(
     license='MIT',
     packages=find_packages(exclude=['tests']),
     package_data={
-        'nanogpt': [
-        ]
+        'nanogpt.experiments.shakespeare': ['data/*'],
     },
     install_requires=[
         'torch', 'numpy', 'lightning', 'hydra-core', 'wandb'
