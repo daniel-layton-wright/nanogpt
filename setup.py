@@ -15,7 +15,7 @@ setup(
         ]
     },
     install_requires=[
-        'torch', 'numpy', 'lightning', 'hydra-core'
+        'torch', 'numpy', 'lightning', 'hydra-core', 'wandb'
     ],
     tests_require=[],
     setup_requires=[],
