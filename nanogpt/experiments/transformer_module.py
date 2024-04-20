@@ -87,6 +87,8 @@ class TransformerModule(L.LightningModule):
 
     def generate_text(self, n_tokens):
         tokens = self.encoder.encode('\n').reshape(1, 1)
+        # Move tokens to the right device
+        tokens = tokens.to(next(self.model.parameters()).device)
         tokens = self.model.generate(tokens, n_tokens, temperature=1.0)
         text = self.encoder.decode(tokens.flatten())
         return text
