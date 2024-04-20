@@ -15,7 +15,7 @@ import wandb
 @dataclass
 class TransformerTrainingConfig(TransformerConfig):
     lr: float = 3e-4
-    weight_decay = 1e-5
+    weight_decay: float = 1e-5
     train_data_fraction: float = 0.8
     batch_size: int = 64
     data_loader_workers: int = 4
