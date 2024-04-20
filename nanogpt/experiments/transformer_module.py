@@ -20,6 +20,7 @@ class TransformerTrainingConfig(TransformerConfig):
     batch_size: int = 64
     data_loader_workers: int = 4
     example_text_every_n_iters: int = 1000
+    compile_model = True
 
 
 class TransformerModule(L.LightningModule):
@@ -27,6 +28,10 @@ class TransformerModule(L.LightningModule):
         super().__init__()
         self.config = config
         self.model = Transformer(config)
+
+        if config.compile_model:
+            self.model = torch.compile(self.model)
+
         self.data = data
         self.train_data = None
         self.val_data = None
